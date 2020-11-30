@@ -1,25 +1,20 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { NavBar } from '../NavBar';
-import { Masthead } from './Masthead';
-import { Features } from './Features';
-import { PageWrapper } from 'app/components/PageWrapper';
+import { Link } from 'react-router-dom';
 
 export function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Home Page</title>
+        <title>Home</title>
         <meta
           name="description"
-          content="A React Boilerplate application homepage"
+          content="Troutlab - WHere developers learn and share knowledge"
         />
       </Helmet>
-      <NavBar />
-      <PageWrapper>
-        <Masthead />
-        <Features />
-      </PageWrapper>
+      <span>Home Page</span>
+      <br />
+      <Link to={'/trello'}>Trello</Link>
     </>
   );
 }
