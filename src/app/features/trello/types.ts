@@ -1,13 +1,4 @@
-export interface Task {
-  id: string;
-  text: string;
-}
-
-export interface List {
-  id: string;
-  text: string;
-  tasks: Task[];
-}
+import { List } from './api/types';
 
 export interface TrelloPageState {
   lists: List[];

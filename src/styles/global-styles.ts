@@ -5,16 +5,16 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
   
-  html {
-    box-sizing: border-box;
-  }
-  
+  html,
   body {
+    height: 100%;
+    width: 100%;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
 
   #root {
     height: 100%;
+    min-width: 100%;
   }
 
   p,

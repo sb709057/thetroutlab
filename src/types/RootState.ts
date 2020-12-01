@@ -7,6 +7,6 @@ import { TrelloPageState } from '../app/features/trello/types';
 */
 
 export interface RootState {
-  trelloPage?: TrelloPageState;
+  trelloPage: TrelloPageState;
   // [INSERT NEW REDUCER KEY ABOVE] < Needed for generating containers seamlessly
 }

@@ -18,11 +18,13 @@ import 'sanitize.css/sanitize.css';
 import { App } from 'app';
 
 import { HelmetProvider } from 'react-helmet-async';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 
 import { configureAppStore } from 'store/configureStore';
 
 // Initialize languages
 import './locales/i18n';
+import { DndProvider } from 'react-dnd';
 
 const store = configureAppStore();
 const MOUNT_NODE = document.getElementById('root') as HTMLElement;
@@ -32,11 +34,13 @@ interface Props {
 }
 const ConnectedApp = ({ Component }: Props) => (
   <Provider store={store}>
-    <HelmetProvider>
-      <React.StrictMode>
-        <Component />
-      </React.StrictMode>
-    </HelmetProvider>
+    <DndProvider backend={HTML5Backend}>
+      <HelmetProvider>
+        <React.StrictMode>
+          <Component />
+        </React.StrictMode>
+      </HelmetProvider>
+    </DndProvider>
   </Provider>
 );
 const render = (Component: typeof App) => {
