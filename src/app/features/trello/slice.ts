@@ -35,15 +35,32 @@ const trelloPageSlice = createSlice({
     ) {
       const { dragIndex, hoverIndex } = action.payload;
       state.lists = moveItem(state.lists, dragIndex, hoverIndex);
-      return {
-        ...state,
-      };
     },
     setDraggedItem(state, action: PayloadAction<DragItem | undefined>) {
       return {
         ...state,
         draggedItem: action.payload,
       };
+    },
+    moveTask(
+      state,
+      action: PayloadAction<{
+        dragIndex: number;
+        hoverIndex: number;
+        sourceColumn: string;
+        targetColumn: string;
+      }>,
+    ) {
+      const {
+        dragIndex,
+        hoverIndex,
+        sourceColumn,
+        targetColumn,
+      } = action.payload;
+      const sourceLaneIndex = findItemIndexById(state.lists, sourceColumn);
+      const targetLaneIndex = findItemIndexById(state.lists, targetColumn);
+      const item = state.lists[sourceLaneIndex].tasks.splice(dragIndex, 1)[0];
+      state.lists[targetLaneIndex].tasks.splice(hoverIndex, 0, item);
     },
   },
 });

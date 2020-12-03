@@ -1,4 +1,5 @@
 import { TrelloPageState } from '../app/features/trello/types';
+import { ColumnDragItem } from '../app/features/trello/api/types';
 // [IMPORT NEW CONTAINER_STATE ABOVE] < Needed for generating containers seamlessly
 
 /*
@@ -8,5 +9,6 @@ import { TrelloPageState } from '../app/features/trello/types';
 
 export interface RootState {
   trelloPage: TrelloPageState;
+  dragItem: ColumnDragItem;
   // [INSERT NEW REDUCER KEY ABOVE] < Needed for generating containers seamlessly
 }

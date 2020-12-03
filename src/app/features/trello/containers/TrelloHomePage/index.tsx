@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectLists } from '../../selectors';
 import { reducer, actions } from '../../slice';
 import { sliceKey } from '../../slice';
+import CustomDragLayer from '../DragNDrop';
 
 const TrelloHomePage: React.FC = () => {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ const TrelloHomePage: React.FC = () => {
         <meta name="description" content="Trello" />
       </Helmet>
       <AppContainer>
+        <CustomDragLayer />
         {trelloList.map((list, i) => (
           <Column text={list.text} key={list.id} index={i} id={list.id} />
         ))}

@@ -20,6 +20,7 @@ const NewItemForm = (props: NewItemFormProps) => {
         ref={inputRef}
         value={text}
         onChange={e => setText(e.currentTarget.value)}
+        required
       />
       <NewItemButton onClick={() => onAdd(text)}>Create</NewItemButton>
     </NewItemFormContainer>
